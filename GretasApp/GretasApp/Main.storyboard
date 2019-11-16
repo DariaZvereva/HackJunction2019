@@ -7,7 +7,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Fridge-->
+        <scene sceneID="pDL-db-XWf">
+            <objects>
+                <viewController id="WQz-mD-z4n" userLabel="Fridge" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="be3-Vx-Yly">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="2bv-l0-1FI"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Fridge" id="nQu-E4-oHF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Vh-mi-Txc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1209" y="842"/>
+        </scene>
+        <!--Achivements-->
         <scene sceneID="pRs-tN-60l">
             <objects>
                 <viewController id="e9Z-wi-ECG" customClass="ViewController2" customModule="GretasApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,13 +33,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="2Cy-eX-g72"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="wRM-4I-tpl"/>
+                    <tabBarItem key="tabBarItem" title="Achivements" id="wRM-4I-tpl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAK-Eg-NJo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="65" y="126"/>
         </scene>
-        <!--Item 1-->
+        <!--Shop list-->
         <scene sceneID="yoX-9U-7pG">
             <objects>
                 <viewController id="NRS-QU-yOP" customClass="ViewController1" customModule="GretasApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -42,7 +58,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="kZ2-DT-NEH"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="9Bj-ua-MdM"/>
+                    <tabBarItem key="tabBarItem" title="Shop list" id="wV6-H3-mIq"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="label" destination="WWJ-kS-BgI" id="05I-tz-JoR"/>
                     </connections>
@@ -63,6 +80,7 @@
                     <connections>
                         <segue destination="NRS-QU-yOP" kind="relationship" relationship="viewControllers" id="s0V-Zm-slq"/>
                         <segue destination="e9Z-wi-ECG" kind="relationship" relationship="viewControllers" id="qLG-Eh-6mT"/>
+                        <segue destination="WQz-mD-z4n" kind="relationship" relationship="viewControllers" id="ED1-UE-64X"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qCe-jh-Rdb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
