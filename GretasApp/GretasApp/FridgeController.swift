@@ -12,10 +12,83 @@ import UIKit
 class FridgeController: UIViewController {
 
     @IBOutlet weak var pageLabel: UILabel!
-    
     @IBOutlet weak var productsStackView: UIStackView!
     
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    var productIdByButtonId: [Int: String] = [:]
+
+    var currentId: Int = 0
+    
+    func getAllProducts() -> [String: Any] {
+        return [:]
+    }
+    
+    func getProductView(product_id: String) -> UIView {
+        let view_ = UIView()
+        view_.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        view_.backgroundColor = .opaqueSeparator
+        let productLabel = UILabel()
+        productLabel.backgroundColor = .white
+        productLabel.text = "I'm label \(product_id)."
+        productLabel.textAlignment = .center
+        
+        view_.addSubview(productLabel)
+        
+        productLabel.leftAnchor.constraint(equalTo: view_.leftAnchor, constant: 10).isActive = true
+        productLabel.topAnchor.constraint(equalTo: view_.topAnchor, constant: 10).isActive = true
+        productLabel.bottomAnchor.constraint(equalTo: view_.bottomAnchor, constant: -10).isActive = true
+
+        productLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let runOutButton = UIButton()
+        runOutButton.backgroundColor = UIColor.red
+        runOutButton.setTitle("Run out", for: .normal)
+        runOutButton.addTarget(self, action: #selector(self.saveProductRunOut), for: .touchUpInside)
+        view_.addSubview(runOutButton)
+
+        var spoiledButton = UIButton()
+        spoiledButton.backgroundColor = UIColor.black
+        spoiledButton.setTitle("Spoiled", for: .normal)
+        spoiledButton.addTarget(self, action: #selector(saveProductSpoiled), for: .touchUpInside)
+        view_.addSubview(spoiledButton)
+
+        runOutButton.leftAnchor.constraint(equalTo: spoiledButton.rightAnchor, constant: 10).isActive = true
+        runOutButton.rightAnchor.constraint(equalTo: view_.rightAnchor, constant: -10).isActive = true
+        runOutButton.topAnchor.constraint(equalTo: view_.topAnchor, constant: 10).isActive = true
+        runOutButton.bottomAnchor.constraint(equalTo: view_.bottomAnchor, constant: -10).isActive = true
+        runOutButton.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
+        runOutButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        runOutButton.tag = currentId
+        productIdByButtonId[currentId] = product_id
+        currentId += 1
+
+                
+        spoiledButton.leftAnchor.constraint(equalTo: productLabel.rightAnchor, constant: 10).isActive = true
+        spoiledButton.rightAnchor.constraint(equalTo: runOutButton.leftAnchor, constant: -10).isActive = true
+        spoiledButton.topAnchor.constraint(equalTo: view_.topAnchor, constant: 10).isActive = true
+        spoiledButton.bottomAnchor.constraint(equalTo: view_.bottomAnchor, constant: -10).isActive = true
+        spoiledButton.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
+        spoiledButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        spoiledButton.tag = currentId
+        productIdByButtonId[currentId] = product_id
+        currentId += 1
+
+
+        return view_
+    }
+    
+    @objc
+    func saveProductRunOut(sender: UIButton) {
+        print("Product \(productIdByButtonId[sender.tag]) run out")
+    }
+    
+    @objc
+    func saveProductSpoiled(sender: UIButton) {
+        print("Product \(productIdByButtonId[sender.tag]) spoiled")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,31 +109,8 @@ class FridgeController: UIViewController {
     }
     
     @IBAction func addProduct(_ sender: Any) {
-//        let view1 = UIView(frame: CGRect(x: 100, y: 50, width: 100, height: 100))
-//        view1.backgroundColor = UIColor.red
-//        productsStackView.addArrangedSubview(view1)
-        let greenView = UIView()
-        greenView.backgroundColor = .green
-        productsStackView.addArrangedSubview(greenView)
-        greenView.translatesAutoresizingMaskIntoConstraints = false
-        // Doesn't have intrinsic content size, so we have to provide the height at least
-        greenView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-
-        // Label (has instrinsic content size)
-        let label = UILabel()
-        label.backgroundColor = .orange
-        label.text = "I'm label \(self.productsStackView.subviews.count)."
-        label.textAlignment = .center
-        productsStackView.addArrangedSubview(label)
+        let prod_2 = getProductView(product_id: NSDate().description)
+        productsStackView.addArrangedSubview(prod_2)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
