@@ -17,43 +17,50 @@ class FridgeController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     var productIdByButtonId: [Int: String] = [:]
-
+    var productSpoiled: Array<String> = []
+    var productRemoved: Array<String> = []
+    var allViews: Array<UIView> = []
+    var viewIdByButtonTag: [Int: Int] = [:]
     var currentId: Int = 0
-    
-    func getAllProducts() -> [String: Any] {
-        return [:]
-    }
     
     func getProductView(product_id: String) -> UIView {
         let view_ = UIView()
         view_.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        view_.backgroundColor = .opaqueSeparator
+        view_.backgroundColor = UIColor.opaqueSeparator.withAlphaComponent(0.2)
         let productLabel = UILabel()
-        productLabel.backgroundColor = .white
-        productLabel.text = "I'm label \(product_id)."
+        productLabel.text = "\(product_id)."
         productLabel.textAlignment = .center
         
         view_.addSubview(productLabel)
+        allViews.append(view_)
         
-        productLabel.leftAnchor.constraint(equalTo: view_.leftAnchor, constant: 10).isActive = true
+        productLabel.leftAnchor.constraint(equalTo: view_.leftAnchor, constant: 5).isActive = true
         productLabel.topAnchor.constraint(equalTo: view_.topAnchor, constant: 10).isActive = true
         productLabel.bottomAnchor.constraint(equalTo: view_.bottomAnchor, constant: -10).isActive = true
 
         productLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let runOutButton = UIButton()
-        runOutButton.backgroundColor = UIColor.red
+        runOutButton.backgroundColor = UIColor.white
         runOutButton.setTitle("Run out", for: .normal)
         runOutButton.addTarget(self, action: #selector(self.saveProductRunOut), for: .touchUpInside)
+        runOutButton.setTitleColor(UIColor.orange, for: UIControl.State.normal)
+        runOutButton.titleLabel?.font = UIFont(name: "Helvetica", size:12)
+        runOutButton.layer.borderColor = UIColor.black.cgColor
+        runOutButton.layer.borderWidth = 1
         view_.addSubview(runOutButton)
 
-        var spoiledButton = UIButton()
-        spoiledButton.backgroundColor = UIColor.black
+        let spoiledButton = UIButton()
+        spoiledButton.backgroundColor = UIColor.white
         spoiledButton.setTitle("Spoiled", for: .normal)
         spoiledButton.addTarget(self, action: #selector(saveProductSpoiled), for: .touchUpInside)
+        spoiledButton.setTitleColor(UIColor.orange, for: UIControl.State.normal)
+        spoiledButton.titleLabel?.font = UIFont(name: "Helvetica", size:12)
+        spoiledButton.layer.borderColor = UIColor.black.cgColor
+        spoiledButton.layer.borderWidth = 1
         view_.addSubview(spoiledButton)
 
-        runOutButton.leftAnchor.constraint(equalTo: spoiledButton.rightAnchor, constant: 10).isActive = true
+        runOutButton.leftAnchor.constraint(equalTo: spoiledButton.rightAnchor, constant: 5).isActive = true
         runOutButton.rightAnchor.constraint(equalTo: view_.rightAnchor, constant: -10).isActive = true
         runOutButton.topAnchor.constraint(equalTo: view_.topAnchor, constant: 10).isActive = true
         runOutButton.bottomAnchor.constraint(equalTo: view_.bottomAnchor, constant: -10).isActive = true
@@ -61,12 +68,12 @@ class FridgeController: UIViewController {
         runOutButton.translatesAutoresizingMaskIntoConstraints = false
         
         runOutButton.tag = currentId
+        viewIdByButtonTag[currentId] = allViews.count - 1
         productIdByButtonId[currentId] = product_id
         currentId += 1
-
                 
-        spoiledButton.leftAnchor.constraint(equalTo: productLabel.rightAnchor, constant: 10).isActive = true
-        spoiledButton.rightAnchor.constraint(equalTo: runOutButton.leftAnchor, constant: -10).isActive = true
+        spoiledButton.leftAnchor.constraint(equalTo: productLabel.rightAnchor, constant: 5).isActive = true
+        spoiledButton.rightAnchor.constraint(equalTo: runOutButton.leftAnchor, constant: -5).isActive = true
         spoiledButton.topAnchor.constraint(equalTo: view_.topAnchor, constant: 10).isActive = true
         spoiledButton.bottomAnchor.constraint(equalTo: view_.bottomAnchor, constant: -10).isActive = true
         spoiledButton.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
@@ -74,8 +81,8 @@ class FridgeController: UIViewController {
         
         spoiledButton.tag = currentId
         productIdByButtonId[currentId] = product_id
+        viewIdByButtonTag[currentId] = allViews.count - 1
         currentId += 1
-
 
         return view_
     }
@@ -83,11 +90,25 @@ class FridgeController: UIViewController {
     @objc
     func saveProductRunOut(sender: UIButton) {
         print("Product \(productIdByButtonId[sender.tag]) run out")
+        productRemoved.append(productIdByButtonId[sender.tag]!)
+        let num = viewIdByButtonTag[sender.tag]
+        let view_to_remove = allViews[num!]
+        productsStackView.removeArrangedSubview(view_to_remove)
+        view_to_remove.removeFromSuperview()
     }
     
     @objc
     func saveProductSpoiled(sender: UIButton) {
         print("Product \(productIdByButtonId[sender.tag]) spoiled")
+        productSpoiled.append(productIdByButtonId[sender.tag]!)
+        let num = viewIdByButtonTag[sender.tag]
+        let view_to_remove = allViews[num!]
+        productsStackView.removeArrangedSubview(view_to_remove)
+        view_to_remove.removeFromSuperview()
+    }
+    
+    func getProducts() -> Array<String> {
+        return ["Banana", "Bread", "Eggs", "Milk"]
     }
     
     override func viewDidLoad() {
@@ -106,11 +127,10 @@ class FridgeController: UIViewController {
           // Satisfying size constraints
           productsStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
+        let products = getProducts()
+               for product in products {
+                   let prod = getProductView(product_id: product)
+                   productsStackView.addArrangedSubview(prod)
+               }
     }
-    
-    @IBAction func addProduct(_ sender: Any) {
-        let prod_2 = getProductView(product_id: NSDate().description)
-        productsStackView.addArrangedSubview(prod_2)
-    }
-
 }
