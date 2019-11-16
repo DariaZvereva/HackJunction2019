@@ -10,18 +10,43 @@
         <!--Fridge-->
         <scene sceneID="pDL-db-XWf">
             <objects>
-                <viewController id="WQz-mD-z4n" userLabel="Fridge" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="be3-Vx-Yly">
+                <viewController id="WQz-mD-z4n" userLabel="Fridge" customClass="FridgeController" customModule="GretasApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="be3-Vx-Yly" userLabel="FridgeView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="U6F-R2-YiW">
+                                <rect key="frame" x="20" y="118" width="374" height="633"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your products" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uQZ-8r-D0Z">
+                                <rect key="frame" x="20" y="44" width="374" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="33"/>
+                                <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9C-EK-oab">
+                                <rect key="frame" x="54" y="768" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="addProduct:" destination="WQz-mD-z4n" eventType="touchUpInside" id="a20-C1-bcs"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="2bv-l0-1FI"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Fridge" id="nQu-E4-oHF"/>
+                    <connections>
+                        <outlet property="pageLabel" destination="uQZ-8r-D0Z" id="sYu-3l-XE8"/>
+                        <outlet property="productsStackView" destination="U6F-R2-YiW" id="aX5-OK-uFf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Vh-mi-Txc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1209" y="842"/>
+            <point key="canvasLocation" x="-1210.144927536232" y="841.74107142857144"/>
         </scene>
         <!--Achivements-->
         <scene sceneID="pRs-tN-60l">

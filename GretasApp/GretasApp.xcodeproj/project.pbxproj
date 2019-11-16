@@ -13,6 +13,7 @@
 		43CD62A1237F416C00BCAB78 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43CD62A0237F416C00BCAB78 /* Preview Assets.xcassets */; };
 		43CD62A4237F416C00BCAB78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43CD62A2237F416C00BCAB78 /* LaunchScreen.storyboard */; };
 		43CD62AC237F4B2400BCAB78 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD62AB237F4B2400BCAB78 /* HttpClient.swift */; };
+		43CD62B82380399E00BCAB78 /* FridgeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD62B72380399E00BCAB78 /* FridgeController.swift */; };
 		A7E6317623801ED80095AEC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7E6317523801ED80095AEC2 /* Main.storyboard */; };
 		A7E6317823801F0C0095AEC2 /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E6317723801F0C0095AEC2 /* ViewController1.swift */; };
 		A7E6317A23801F650095AEC2 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E6317923801F650095AEC2 /* ViewController2.swift */; };
@@ -27,6 +28,7 @@
 		43CD62A3237F416C00BCAB78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43CD62A5237F416C00BCAB78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43CD62AB237F4B2400BCAB78 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		43CD62B72380399E00BCAB78 /* FridgeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeController.swift; sourceTree = "<group>"; };
 		A7E6317523801ED80095AEC2 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A7E6317723801F0C0095AEC2 /* ViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
 		A7E6317923801F650095AEC2 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				43CD629F237F416C00BCAB78 /* Preview Content */,
 				A7E6317523801ED80095AEC2 /* Main.storyboard */,
 				A7E6317723801F0C0095AEC2 /* ViewController1.swift */,
+				43CD62B72380399E00BCAB78 /* FridgeController.swift */,
 				A7E6317923801F650095AEC2 /* ViewController2.swift */,
 			);
 			path = GretasApp;
@@ -168,6 +171,7 @@
 				43CD6298237F416B00BCAB78 /* AppDelegate.swift in Sources */,
 				43CD629A237F416B00BCAB78 /* SceneDelegate.swift in Sources */,
 				43CD62AC237F4B2400BCAB78 /* HttpClient.swift in Sources */,
+				43CD62B82380399E00BCAB78 /* FridgeController.swift in Sources */,
 				A7E6317A23801F650095AEC2 /* ViewController2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
