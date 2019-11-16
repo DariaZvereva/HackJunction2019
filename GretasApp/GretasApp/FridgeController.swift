@@ -28,7 +28,7 @@ class FridgeController: UIViewController {
         view_.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         view_.backgroundColor = UIColor.opaqueSeparator.withAlphaComponent(0.2)
         let productLabel = UILabel()
-        productLabel.text = "\(product_id)."
+        productLabel.text = "\(product_id)"
         productLabel.textAlignment = .center
         
         view_.addSubview(productLabel)
@@ -107,8 +107,9 @@ class FridgeController: UIViewController {
         view_to_remove.removeFromSuperview()
     }
     
+    // TODO: Get Actual
     func getProducts() -> Array<String> {
-        return ["Banana", "Bread", "Eggs", "Milk"]
+        return ["Bread", "Banana", "Eggs", "Milk", "A Very Long Long Product", "Banana", "Bread", "Eggs", "Milk", "A Very Long Long Product", "Banana", "Bread", "Eggs", "Milk", "A Very Long Long Product"]
     }
     
     override func viewDidLoad() {
@@ -127,10 +128,28 @@ class FridgeController: UIViewController {
           // Satisfying size constraints
           productsStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
+        productsStackView.distribution = .equalSpacing
+        productsStackView.alignment = .trailing
         let products = getProducts()
                for product in products {
                    let prod = getProductView(product_id: product)
                    productsStackView.addArrangedSubview(prod)
+                    prod.trailingAnchor.constraint(equalTo: productsStackView.trailingAnchor, constant: -5).isActive = true
+                    prod.leadingAnchor.constraint(equalTo: productsStackView.leadingAnchor, constant: 5).isActive = true
                }
+        
+        let space = UIView()
+        space.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        space.translatesAutoresizingMaskIntoConstraints = false
+        productsStackView.addArrangedSubview(space)
+        space.widthAnchor.constraint(equalTo: productsStackView.widthAnchor).isActive = true
+
+        let imageName = "20.png"
+        let image = UIImage(named: imageName)
+        let whaleImg = UIImageView(image: image!)
+        whaleImg.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
+        whaleImg.widthAnchor.constraint(equalTo: whaleImg.heightAnchor).isActive = true
+        whaleImg.translatesAutoresizingMaskIntoConstraints = false
+        productsStackView.addArrangedSubview(whaleImg)
     }
 }
