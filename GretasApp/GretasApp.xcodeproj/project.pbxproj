@@ -58,9 +58,9 @@
 		43CD6296237F416B00BCAB78 /* GretasApp */ = {
 			isa = PBXGroup;
 			children = (
+				43CD62AF237FF26B00BCAB78 /* Utils */,
 				43CD6297237F416B00BCAB78 /* AppDelegate.swift */,
 				43CD6299237F416B00BCAB78 /* SceneDelegate.swift */,
-				43CD62AB237F4B2400BCAB78 /* HttpClient.swift */,
 				43CD629B237F416B00BCAB78 /* ContentView.swift */,
 				43CD629D237F416C00BCAB78 /* Assets.xcassets */,
 				43CD62A2237F416C00BCAB78 /* LaunchScreen.storyboard */,
@@ -76,6 +76,14 @@
 				43CD62A0237F416C00BCAB78 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		43CD62AF237FF26B00BCAB78 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				43CD62AB237F4B2400BCAB78 /* HttpClient.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
