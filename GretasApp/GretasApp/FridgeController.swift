@@ -29,7 +29,7 @@ class FridgeController: UIViewController {
         view_.backgroundColor = UIColor.opaqueSeparator.withAlphaComponent(0.2)
         let productLabel = UILabel()
         productLabel.text = "\(product_id)"
-        productLabel.textAlignment = .center
+        productLabel.textAlignment = .natural
         
         view_.addSubview(productLabel)
         allViews.append(view_)
@@ -89,8 +89,25 @@ class FridgeController: UIViewController {
     
     @objc
     func saveProductRunOut(sender: UIButton) {
-        print("Product \(productIdByButtonId[sender.tag]) run out")
+        print("Product \(String(describing: productIdByButtonId[sender.tag])) run out")
         productRemoved.append(productIdByButtonId[sender.tag]!)
+        let defaults = UserDefaults.standard
+        if let data_ = defaults.string(forKey: "run_out_products") {
+            defaults.set(data_+";"+productIdByButtonId[sender.tag]!, forKey: "run_out_products")
+        } else {
+            defaults.set(productIdByButtonId[sender.tag]!, forKey: "run_out_products")
+        }
+        if let curr_data = defaults.string(forKey: "current_products") {
+            let list = Array(curr_data.split(separator: ";").map(String.init))
+            var to_save: Array<String> = []
+            for it in list {
+                if it != productIdByButtonId[sender.tag]! {
+                    to_save.append(it)
+                }
+            }
+            defaults.set(to_save.joined(separator: ";"), forKey: "current_products")
+        }
+        
         let num = viewIdByButtonTag[sender.tag]
         let view_to_remove = allViews[num!]
         productsStackView.removeArrangedSubview(view_to_remove)
@@ -99,8 +116,14 @@ class FridgeController: UIViewController {
     
     @objc
     func saveProductSpoiled(sender: UIButton) {
-        print("Product \(productIdByButtonId[sender.tag]) spoiled")
+        print("Product \(String(describing: productIdByButtonId[sender.tag])) spoiled")
         productSpoiled.append(productIdByButtonId[sender.tag]!)
+        let defaults = UserDefaults.standard
+        if let data_ = defaults.string(forKey: "spoiled_products") {
+            defaults.set(data_+";"+productIdByButtonId[sender.tag]!, forKey: "spoiled_products")
+        } else {
+            defaults.set(productIdByButtonId[sender.tag], forKey: "spoiled_products")
+        }
         let num = viewIdByButtonTag[sender.tag]
         let view_to_remove = allViews[num!]
         productsStackView.removeArrangedSubview(view_to_remove)
@@ -109,14 +132,31 @@ class FridgeController: UIViewController {
     
     // TODO: Get Actual
     func getProducts() -> Array<String> {
-        return ["Bread", "Banana", "Eggs", "Milk", "A Very Long Long Product", "Banana", "Bread", "Eggs", "Milk", "A Very Long Long Product", "Banana", "Bread", "Eggs", "Milk", "A Very Long Long Product"]
+        let defaults = UserDefaults.standard
+        if let data_ = defaults.string(forKey: "current_products") {
+            return Array(data_.split(separator: ";").map(String.init))
+        } else {
+            return ["Bread", "Banana", "Eggs", "Milk", "A Very Long Long Product", "Banana", "Bread", "Eggs", "Milk", "A Very Long Long Product", "Banana", "Bread", "Eggs", "Milk", "A Very Long Long Product"]
+        }
+    }
+    
+    func saveProduct(product: String) {
+        let defaults = UserDefaults.standard
+        if let data_ = defaults.string(forKey: "current_products") {
+            defaults.set(data_+";"+product, forKey: "current_products")
+        } else {
+            defaults.set(product, forKey: "current_products")
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        saveProduct(product: "Milk")
+//        saveProduct(product: "Bread")
+//        saveProduct(product: "Coffee")
+        
         self.scrollView.addSubview(self.productsStackView)
-    self.productsStackView.translatesAutoresizingMaskIntoConstraints = false
+        self.productsStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
           // Attaching the content's edges to the scroll view's edges
