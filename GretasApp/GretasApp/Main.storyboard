@@ -15,10 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="U6F-R2-YiW">
-                                <rect key="frame" x="20" y="118" width="374" height="633"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your products" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uQZ-8r-D0Z">
                                 <rect key="frame" x="20" y="44" width="374" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -34,6 +30,18 @@
                                     <action selector="addProduct:" destination="WQz-mD-z4n" eventType="touchUpInside" id="a20-C1-bcs"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cCU-kj-lYJ">
+                                <rect key="frame" x="20" y="111" width="374" height="658"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="U6F-R2-YiW">
+                                        <rect key="frame" x="8" y="8" width="358" height="641"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </stackView>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="l2r-HR-34s"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="o4C-XB-Fx4"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="2bv-l0-1FI"/>
@@ -42,6 +50,7 @@
                     <connections>
                         <outlet property="pageLabel" destination="uQZ-8r-D0Z" id="sYu-3l-XE8"/>
                         <outlet property="productsStackView" destination="U6F-R2-YiW" id="aX5-OK-uFf"/>
+                        <outlet property="scrollView" destination="cCU-kj-lYJ" id="Iuv-LY-IE9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Vh-mi-Txc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
