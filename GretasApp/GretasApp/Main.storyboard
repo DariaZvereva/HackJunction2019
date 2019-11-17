@@ -68,14 +68,42 @@
                     <view key="view" contentMode="scaleToFill" id="y92-NL-TMr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgd-7y-Tat">
+                                <rect key="frame" x="30" y="384" width="354" height="128"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="W9q-Ol-jCz">
+                                        <rect key="frame" x="0.0" y="-36" width="354" height="200"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="W9q-Ol-jCz" secondAttribute="bottom" constant="30" id="VNy-vC-YR8"/>
+                                    <constraint firstAttribute="trailing" secondItem="W9q-Ol-jCz" secondAttribute="trailing" id="kgn-Hb-5Xm"/>
+                                    <constraint firstItem="W9q-Ol-jCz" firstAttribute="leading" secondItem="Bgd-7y-Tat" secondAttribute="leading" id="mht-Ms-CZ5"/>
+                                    <constraint firstItem="W9q-Ol-jCz" firstAttribute="width" secondItem="Bgd-7y-Tat" secondAttribute="width" id="n1K-Ng-FVZ"/>
+                                    <constraint firstItem="W9q-Ol-jCz" firstAttribute="top" secondItem="Bgd-7y-Tat" secondAttribute="top" constant="30" id="rVC-tD-hHl"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="dk4-DA-w7h"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="zKy-8h-QBt"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Bgd-7y-Tat" firstAttribute="leading" secondItem="2Cy-eX-g72" secondAttribute="leading" constant="30" id="GkG-PN-h09"/>
+                            <constraint firstItem="Bgd-7y-Tat" firstAttribute="top" secondItem="2Cy-eX-g72" secondAttribute="top" id="ZjC-je-MRM"/>
+                            <constraint firstItem="2Cy-eX-g72" firstAttribute="bottom" secondItem="Bgd-7y-Tat" secondAttribute="bottom" id="nBy-Oa-xid"/>
+                            <constraint firstItem="2Cy-eX-g72" firstAttribute="trailing" secondItem="Bgd-7y-Tat" secondAttribute="trailing" constant="30" id="pj8-cp-1fv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2Cy-eX-g72"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Achivements" id="wRM-4I-tpl"/>
+                    <tabBarItem key="tabBarItem" title="Achivements" selectedImage="star.fill" catalog="system" id="wRM-4I-tpl"/>
+                    <connections>
+                        <outlet property="mainStackView" destination="W9q-Ol-jCz" id="WQL-c1-fa7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAK-Eg-NJo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65" y="126"/>
+            <point key="canvasLocation" x="63.768115942028992" y="125.89285714285714"/>
         </scene>
         <!--Shop list-->
         <scene sceneID="yoX-9U-7pG">
@@ -85,13 +113,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWJ-kS-BgI">
-                                <rect key="frame" x="114" y="265" width="201" height="94"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kaX-IQ-pRp">
+                                <rect key="frame" x="20" y="148" width="374" height="543"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="llg-cq-vSS">
+                                        <rect key="frame" x="8" y="8" width="97" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </stackView>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="WyJ-wp-SOO"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="WNH-fg-68E"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shopping List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9a-gJ-Sri">
+                                <rect key="frame" x="20" y="72" width="208" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7t-Nw-N2a">
+                                <rect key="frame" x="318" y="725" width="76" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add New Item" image="Plus"/>
+                                <connections>
+                                    <action selector="addNewItem:" destination="NRS-QU-yOP" eventType="touchDown" id="BXF-em-AZa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="kZ2-DT-NEH"/>
@@ -99,12 +147,14 @@
                     <tabBarItem key="tabBarItem" title="Shop list" id="wV6-H3-mIq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="label" destination="WWJ-kS-BgI" id="05I-tz-JoR"/>
+                        <outlet property="addNewItem" destination="u7t-Nw-N2a" id="XCI-TN-mE6"/>
+                        <outlet property="scrollView" destination="kaX-IQ-pRp" id="zNe-6i-Yw8"/>
+                        <outlet property="stackView" destination="llg-cq-vSS" id="Ncn-dE-pib"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXZ-YR-NQ5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="63.768115942028992" y="770.75892857142856"/>
+            <point key="canvasLocation" x="-259" y="931"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="RGr-Gz-GpQ">
@@ -114,6 +164,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="" value="NO"/>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="NRS-QU-yOP" kind="relationship" relationship="viewControllers" id="s0V-Zm-slq"/>
@@ -126,4 +179,7 @@
             <point key="canvasLocation" x="-1270" y="126"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="star.fill" catalog="system" width="64" height="58"/>
+    </resources>
 </document>
