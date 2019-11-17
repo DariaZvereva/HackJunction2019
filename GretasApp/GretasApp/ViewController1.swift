@@ -45,7 +45,7 @@ class CheckList : UIStackView {
     
 
     class ProTextField : UITextField {
-        weak var parent: CheckList! = nil
+        weak var parent: UIView! = nil
         override func deleteBackward() {
             if (self.text != "") {
                 super.deleteBackward()
@@ -74,33 +74,32 @@ class CheckList : UIStackView {
         return String(data: data!, encoding: .utf8) ?? " "
     }
     
+    var checkBox = CheckBox()
+    var text = ProTextField()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let checkBox = CheckBox()
-        let text = ProTextField()
-        text.addTarget(self, action: #selector(makeSearch), for: .editingDidEndOnExit)
+//        let checkBox = CheckBox()
+//        let text = ProTextField()
+        self.text.addTarget(self, action: #selector(makeSearch), for: .editingDidEndOnExit)
         self.axis = .horizontal
         self.alignment = .fill
         self.distribution = .fillProportionally
         self.spacing = 10
         
-        
-        self.addArrangedSubview(checkBox)
-        self.addArrangedSubview(text)
+        self.addArrangedSubview(self.checkBox)
+        self.addArrangedSubview(self.text)
 //        self.addSubview(checkBox)
-        text.parent = self
+//        text.parent = self
         
         self.addBackground(color: .orange)
         self.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
 
-        checkBox.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
-        checkBox.heightAnchor.constraint(equalToConstant: 10.0).isActive = true
-        checkBox.widthAnchor.constraint(equalTo: checkBox.heightAnchor).isActive = true
-        checkBox.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
+        self.checkBox.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        self.checkBox.heightAnchor.constraint(equalToConstant: 10.0).isActive = true
+        self.checkBox.widthAnchor.constraint(equalTo: self.checkBox.heightAnchor).isActive = true
+        self.checkBox.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
 //        checkBox.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        
-
-        
     }
     
     required init(coder: NSCoder) {
@@ -163,8 +162,8 @@ class ViewController1: UIViewController {
         bulbImage.widthAnchor.constraint(equalTo: bulbImage.heightAnchor).isActive = true
         bulbImage.leadingAnchor.constraint(equalTo: tipsView.leadingAnchor, constant: 10).isActive = true
         
-        let newItem = CheckList()
         
+        let newItem = CheckList()
         let newFiled = UIStackView()
         newFiled.axis = .vertical
         newFiled.addArrangedSubview(newItem)
@@ -173,6 +172,8 @@ class ViewController1: UIViewController {
         
         newFiled.addBackground(color: UIColor(red: 240 / 255, green: 240 / 255, blue: 240 / 255, alpha: 1.0))
         stackView.addArrangedSubview(newFiled)
+        
+        newItem.text.parent = newFiled
 //        stackView.addArrangedSubview(CheckList())
     }
 
