@@ -68,14 +68,8 @@ class CheckList : UIStackView {
                     print(best_result["segment"])
                 }
             }
-//            print(responseJSON["results"]![0]["ean"])
         }
 //        print(String(data: data!, encoding: .utf8))
-        print("azazaza")
-        print(response)
-        print(error)
-        print("11111")
-        print("data")
         
         return String(data: data!, encoding: .utf8) ?? " "
     }
@@ -175,7 +169,9 @@ class ViewController1: UIViewController {
         newFiled.axis = .vertical
         newFiled.addArrangedSubview(newItem)
         newFiled.addArrangedSubview(tipsView)
-        newFiled.addBackground(color: .orange)
+        newFiled.spacing = 10
+        
+        newFiled.addBackground(color: UIColor(red: 240 / 255, green: 240 / 255, blue: 240 / 255, alpha: 1.0))
         stackView.addArrangedSubview(newFiled)
 //        stackView.addArrangedSubview(CheckList())
     }
