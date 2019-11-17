@@ -275,14 +275,15 @@ class ViewController2: UIViewController {
             button.tag = currentTag
             viewByTag[currentTag] = background
             currentTag += 1
-            button.setTitle("🔘", for: .normal)
+            button.setTitle("○", for: .normal)
         } else {
             if done {
                 button.setTitle("⭐️", for: .normal)
                 label.font = UIFont(name: "Helevtica-Bold", size: 10.0)
 //                button.setImage(UIImage(named: "star"), for: .normal)
             } else {
-                button.setTitle("🔘", for: .normal)
+                button.setTitle("○", for: .normal)
+                button.titleLabel?.textColor = .black
                 label.font = UIFont(name: "Helevtica-Light", size: 10.0)
             }
         }

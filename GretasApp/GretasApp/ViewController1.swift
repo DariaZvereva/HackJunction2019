@@ -52,7 +52,7 @@ class CheckList : UIStackView {
         if let data_ = defaults.string(forKey: "current_products") {
             defaults.set(data_+";"+sender.text!+"-0", forKey: "current_products")
         } else {
-            defaults.set(sender.text!+"-", forKey: "current_products")
+            defaults.set(sender.text!+"-0", forKey: "current_products")
         }
         
         addTip(forfield: sender)
@@ -68,6 +68,10 @@ class CheckList : UIStackView {
 //        } else {
 //            defaults.set((sender.superview! as! CheckList).text.text! + "-1", forKey: "current_products")
 //        }
+        
+        if (sender.superview! as! CheckList).text.text! == "" {
+            return
+        }
         
         var to_save: Array<String> = []
 
