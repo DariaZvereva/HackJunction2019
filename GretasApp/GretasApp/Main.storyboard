@@ -94,7 +94,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Cy-eX-g72"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Achivements" id="wRM-4I-tpl"/>
+                    <tabBarItem key="tabBarItem" title="Achivements" selectedImage="star.fill" catalog="system" id="wRM-4I-tpl"/>
                     <connections>
                         <outlet property="mainStackView" destination="W9q-Ol-jCz" id="WQL-c1-fa7"/>
                     </connections>
@@ -152,4 +152,7 @@
             <point key="canvasLocation" x="-1270" y="126"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="star.fill" catalog="system" width="64" height="58"/>
+    </resources>
 </document>
