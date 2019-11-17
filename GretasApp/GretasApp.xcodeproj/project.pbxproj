@@ -310,15 +310,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"GretasApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 6F4F74MHT5;
+				DEVELOPMENT_TEAM = 3WSC863N4U;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GretasApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Junction2019.GretasApp1;
+				PRODUCT_BUNDLE_IDENTIFIER = Junction2019.GretasApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -334,7 +334,7 @@
 				DEVELOPMENT_TEAM = 6F4F74MHT5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GretasApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

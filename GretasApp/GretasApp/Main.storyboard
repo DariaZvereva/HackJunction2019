@@ -26,7 +26,7 @@
                                 <rect key="frame" x="20" y="111" width="374" height="691"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalCentering" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="U6F-R2-YiW">
-                                        <rect key="frame" x="8" y="8" width="358" height="675"/>
+                                        <rect key="frame" x="8" y="8" width="133" height="34"/>
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </stackView>
@@ -68,14 +68,42 @@
                     <view key="view" contentMode="scaleToFill" id="y92-NL-TMr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgd-7y-Tat">
+                                <rect key="frame" x="30" y="384" width="354" height="128"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="W9q-Ol-jCz">
+                                        <rect key="frame" x="0.0" y="-36" width="354" height="200"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="W9q-Ol-jCz" secondAttribute="bottom" constant="30" id="VNy-vC-YR8"/>
+                                    <constraint firstAttribute="trailing" secondItem="W9q-Ol-jCz" secondAttribute="trailing" id="kgn-Hb-5Xm"/>
+                                    <constraint firstItem="W9q-Ol-jCz" firstAttribute="leading" secondItem="Bgd-7y-Tat" secondAttribute="leading" id="mht-Ms-CZ5"/>
+                                    <constraint firstItem="W9q-Ol-jCz" firstAttribute="width" secondItem="Bgd-7y-Tat" secondAttribute="width" id="n1K-Ng-FVZ"/>
+                                    <constraint firstItem="W9q-Ol-jCz" firstAttribute="top" secondItem="Bgd-7y-Tat" secondAttribute="top" constant="30" id="rVC-tD-hHl"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="dk4-DA-w7h"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="zKy-8h-QBt"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Bgd-7y-Tat" firstAttribute="leading" secondItem="2Cy-eX-g72" secondAttribute="leading" constant="30" id="GkG-PN-h09"/>
+                            <constraint firstItem="Bgd-7y-Tat" firstAttribute="top" secondItem="2Cy-eX-g72" secondAttribute="top" id="ZjC-je-MRM"/>
+                            <constraint firstItem="2Cy-eX-g72" firstAttribute="bottom" secondItem="Bgd-7y-Tat" secondAttribute="bottom" id="nBy-Oa-xid"/>
+                            <constraint firstItem="2Cy-eX-g72" firstAttribute="trailing" secondItem="Bgd-7y-Tat" secondAttribute="trailing" constant="30" id="pj8-cp-1fv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2Cy-eX-g72"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Achivements" id="wRM-4I-tpl"/>
+                    <tabBarItem key="tabBarItem" title="Achivements" selectedImage="star.fill" catalog="system" id="wRM-4I-tpl"/>
+                    <connections>
+                        <outlet property="mainStackView" destination="W9q-Ol-jCz" id="WQL-c1-fa7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAK-Eg-NJo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65" y="126"/>
+            <point key="canvasLocation" x="63.768115942028992" y="125.89285714285714"/>
         </scene>
         <!--Shop list-->
         <scene sceneID="yoX-9U-7pG">
@@ -126,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXZ-YR-NQ5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="63.768115942028992" y="770.75892857142856"/>
+            <point key="canvasLocation" x="-259" y="931"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="RGr-Gz-GpQ">
@@ -152,6 +180,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Plus" width="100" height="100"/>
+        <image name="star.fill" catalog="system" width="64" height="58"/>
     </resources>
 </document>

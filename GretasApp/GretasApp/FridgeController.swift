@@ -22,6 +22,41 @@ class FridgeController: UIViewController {
     var allViews: Array<UIView> = []
     var viewIdByButtonTag: [Int: Int] = [:]
     var currentId: Int = 0
+//
+//    let addItemButton = UIButton()
+//    let addItemTextField = UITextField()
+//    
+//    @objc func addNewProduct(sender: UIButton) {
+//        let new_prod_name = self.addItemTextField.text
+//        saveProduct(product: new_prod_name!)
+//    }
+//    
+//    func prepareNewItemView() -> UIView {
+//        let newItemView = UIView()
+//        newItemView.addSubview(addItemButton)
+//        newItemView.addSubview(addItemTextField)
+//        newItemView.backgroundColor = UIColor.opaqueSeparator.withAlphaComponent(0.2)
+//        addItemButton.backgroundColor = UIColor.white
+//        addItemButton.setTitle("Add", for: .normal)
+//        addItemButton.addTarget(self, action: #selector(self.addNewProduct), for: .touchUpInside)
+//        addItemButton.setTitleColor(UIColor.orange, for: UIControl.State.normal)
+//        addItemButton.titleLabel?.font = UIFont(name: "Helvetica", size:12)
+//        addItemTextField.leftAnchor.constraint(equalTo: newItemView.leftAnchor, constant: 10).isActive = true
+//        addItemTextField.heightAnchor.constraint(equalTo: newItemView.heightAnchor).isActive = true
+//        addItemButton.rightAnchor.constraint(equalTo: newItemView.rightAnchor, constant: -10).isActive = true
+//        addItemButton.heightAnchor.constraint(equalTo: newItemView.heightAnchor).isActive = true
+//        addItemTextField.textColor = .orange
+////        addItemTextField.text = "Add Item"
+//        addItemTextField.backgroundColor = .white
+//        addItemTextField.topAnchor.constraint(equalTo: newItemView.topAnchor, constant: 5).isActive = true
+//        addItemTextField.bottomAnchor.constraint(equalTo: newItemView.bottomAnchor, constant: 5).isActive = true
+//        addItemButton.translatesAutoresizingMaskIntoConstraints = false
+//        addItemButton.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
+//        addItemTextField.translatesAutoresizingMaskIntoConstraints = false
+//        addItemTextField.rightAnchor.constraint(equalTo: addItemButton.leftAnchor, constant: -10).isActive = true
+//        newItemView.translatesAutoresizingMaskIntoConstraints = false
+//        return newItemView
+//    }
     
     func getProductView(product_id: String) -> UIView {
         let view_ = UIView()
@@ -46,8 +81,8 @@ class FridgeController: UIViewController {
         runOutButton.addTarget(self, action: #selector(self.saveProductRunOut), for: .touchUpInside)
         runOutButton.setTitleColor(UIColor.orange, for: UIControl.State.normal)
         runOutButton.titleLabel?.font = UIFont(name: "Helvetica", size:12)
-        runOutButton.layer.borderColor = UIColor.black.cgColor
-        runOutButton.layer.borderWidth = 1
+//        runOutButton.layer.borderColor = UIColor.black.cgColor
+//        runOutButton.layer.borderWidth = 1
         view_.addSubview(runOutButton)
 
         let spoiledButton = UIButton()
@@ -56,11 +91,11 @@ class FridgeController: UIViewController {
         spoiledButton.addTarget(self, action: #selector(saveProductSpoiled), for: .touchUpInside)
         spoiledButton.setTitleColor(UIColor.orange, for: UIControl.State.normal)
         spoiledButton.titleLabel?.font = UIFont(name: "Helvetica", size:12)
-        spoiledButton.layer.borderColor = UIColor.black.cgColor
-        spoiledButton.layer.borderWidth = 1
+//        spoiledButton.layer.borderColor = UIColor.black.cgColor
+//        spoiledButton.layer.borderWidth = 1
         view_.addSubview(spoiledButton)
 
-        runOutButton.leftAnchor.constraint(equalTo: spoiledButton.rightAnchor, constant: 5).isActive = true
+        runOutButton.leftAnchor.constraint(equalTo: spoiledButton.rightAnchor, constant: 10).isActive = true
         runOutButton.rightAnchor.constraint(equalTo: view_.rightAnchor, constant: -10).isActive = true
         runOutButton.topAnchor.constraint(equalTo: view_.topAnchor, constant: 10).isActive = true
         runOutButton.bottomAnchor.constraint(equalTo: view_.bottomAnchor, constant: -10).isActive = true
@@ -72,8 +107,8 @@ class FridgeController: UIViewController {
         productIdByButtonId[currentId] = product_id
         currentId += 1
                 
-        spoiledButton.leftAnchor.constraint(equalTo: productLabel.rightAnchor, constant: 5).isActive = true
-        spoiledButton.rightAnchor.constraint(equalTo: runOutButton.leftAnchor, constant: -5).isActive = true
+        spoiledButton.leftAnchor.constraint(equalTo: productLabel.rightAnchor, constant: 10).isActive = true
+        spoiledButton.rightAnchor.constraint(equalTo: runOutButton.leftAnchor, constant: -10).isActive = true
         spoiledButton.topAnchor.constraint(equalTo: view_.topAnchor, constant: 10).isActive = true
         spoiledButton.bottomAnchor.constraint(equalTo: view_.bottomAnchor, constant: -10).isActive = true
         spoiledButton.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
@@ -136,7 +171,7 @@ class FridgeController: UIViewController {
         if let data_ = defaults.string(forKey: "current_products") {
             return Array(data_.split(separator: ";").map(String.init))
         } else {
-            return ["Bread", "Banana", "Eggs", "Milk", "A Very Long Long Product", "Banana", "Bread", "Eggs", "Milk", "A Very Long Long Product", "Banana", "Bread", "Eggs", "Milk", "A Very Long Long Product"]
+            return ["Bread", "Banana", "Eggs", "Milk", "A Very Long Long Product"]
         }
     }
     
@@ -158,6 +193,7 @@ class FridgeController: UIViewController {
         self.scrollView.addSubview(self.productsStackView)
         self.productsStackView.translatesAutoresizingMaskIntoConstraints = false
         
+        
         NSLayoutConstraint.activate([
           // Attaching the content's edges to the scroll view's edges
           productsStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
@@ -177,7 +213,10 @@ class FridgeController: UIViewController {
                     prod.trailingAnchor.constraint(equalTo: productsStackView.trailingAnchor, constant: -5).isActive = true
                     prod.leadingAnchor.constraint(equalTo: productsStackView.leadingAnchor, constant: 5).isActive = true
                }
-        
+//        let newItemView = prepareNewItemView()
+//        productsStackView.addArrangedSubview(newItemView)
+//        newItemView.widthAnchor.constraint(equalTo: productsStackView.widthAnchor).isActive = true
+//        
         let space = UIView()
         space.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         space.translatesAutoresizingMaskIntoConstraints = false
