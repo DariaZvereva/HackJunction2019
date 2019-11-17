@@ -42,10 +42,8 @@ class CheckList : UIStackView {
         }
     }
     
-    
-
     class ProTextField : UITextField {
-        weak var parent: UIView! = nil
+        weak var parent: UIStackView! = nil
         override func deleteBackward() {
             if (self.text != "") {
                 super.deleteBackward()
@@ -56,6 +54,7 @@ class CheckList : UIStackView {
         }
     }
     
+<<<<<<< HEAD
     @objc func makeSearch(sender: UITextField) -> String {
         
         let defaults = UserDefaults.standard
@@ -68,18 +67,108 @@ class CheckList : UIStackView {
         let http_client = HttpClient(_baseUrl: "https://kesko.azure-api.net/v1/search", _token: "3ddca0c4535143e1bdf67a32c216c881")
         let (data, response, error) = http_client.reciveProductCategory(item: sender.text ?? " ")
         print("!!!!!!")
+=======
+    @objc func makeSearch(sender: ProTextField){
+        let http_client = HttpClient(_baseUrl: "https://kesko.azure-api.net/v1", _token: "3ddca0c4535143e1bdf67a32c216c881")
+        let (data, response, error) = http_client.reciveProductCategory(item: sender.text!)
+>>>>>>> aa60cc2c4a103b1633f89de3b21927adf1e4ea52
         let responseJSON = try? JSONSerialization.jsonObject(with: data!, options: [])
+        var category: String?
         if let responseJSON = responseJSON as? [String: Any] {
+//            print("JSON BEGIN")
+//            print(responseJSON)
+//            print("JSON END")
+            
             if let results = responseJSON["results"] as? Array<Any> {
-                print(results)
-                if let best_result = results[0] as? [String: Any] {
-                    print(best_result["segment"])
+//                print(1111)
+//                print(results)
+                if results.count > 0 {
+                    if let best_result = results[0] as? [String: Any] {
+//                        print(2222)
+//                        print(best_result)
+                        if let subcategory = best_result["subcategory"] as? [String: Any] {
+//                            print(3333)
+                            category = subcategory["finnish"] as? String
+                            print(category)
+                        }
+                    }
                 }
             }
         }
-//        print(String(data: data!, encoding: .utf8))
-        
-        return String(data: data!, encoding: .utf8) ?? " "
+        if category != nil {
+//            let tipsView = UIStackView()
+//            tipsView.axis = .horizontal
+//            let bulbImage = UIImageView(image: UIImage(named: "Bulb.png"))
+//            let tips = UILabel()
+//            if category! == "Virvoitusjuomat" {
+//                tips.text = "Take can instead of plasstic!"
+//            }
+//            else if category! == "Hedelmät ja marjat" {
+//                tips.text = "Don't forget bag!"
+//            } else {
+//                return
+//            }
+//            tipsView.addArrangedSubview(bulbImage)
+//            tipsView.addArrangedSubview(tips)
+//            tipsView.alignment = .fill
+//            tipsView.distribution = .fillProportionally
+//            tipsView.spacing = 10
+//            tipsView.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
+//
+//            bulbImage.heightAnchor.constraint(equalTo: tipsView.heightAnchor).isActive = true
+//            bulbImage.heightAnchor.constraint(equalToConstant: 10.0).isActive = true
+//            bulbImage.widthAnchor.constraint(equalTo: bulbImage.heightAnchor).isActive = true
+//            bulbImage.leadingAnchor.constraint(equalTo: tipsView.leadingAnchor, constant: 10).isActive = true
+            
+            
+            
+            let tipsView = UIStackView()
+            tipsView.axis = .horizontal
+            tipsView.spacing = 10
+            
+            let bulbImage = UIImageView(image: UIImage(named: "Bulb.png"))
+            let tips = UILabel()
+            if category! == "Virvoitusjuomat" {
+                tips.text = "Take can instead of plasstic!"
+            }
+            else if category! == "Hedelmät ja marjat" {
+                tips.text = "Don't forget bag!"
+            } else {
+                return
+            }
+            let empty3 = UIView()
+            empty3.widthAnchor.constraint(equalToConstant: 100).isActive = true
+            tipsView.addArrangedSubview(empty3)
+            tipsView.addArrangedSubview(bulbImage)
+            tipsView.addArrangedSubview(tips)
+            tipsView.alignment = .fill
+            tipsView.distribution = .fillProportionally
+            tipsView.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
+            
+            bulbImage.heightAnchor.constraint(equalTo: tipsView.heightAnchor).isActive = true
+            bulbImage.heightAnchor.constraint(equalToConstant: 10.0).isActive = true
+            bulbImage.widthAnchor.constraint(equalTo: bulbImage.heightAnchor).isActive = true
+            bulbImage.leadingAnchor.constraint(equalTo: tipsView.leadingAnchor, constant: 10).isActive = true
+            
+//            newFiled.addArrangedSubview(tipsView)
+//            let empty2 = UIView()
+//            empty2.heightAnchor.constraint(equalToConstant: 10).isActive = true
+//            newFiled.addArrangedSubview(empty2)
+//
+//            newFiled.spacing = 10
+//
+//            newFiled.addBackground(color: UIColor(red: 240 / 255, green: 240 / 255, blue: 240 / 255, alpha: 1.0))
+            
+            
+            sender.parent.addArrangedSubview(tipsView)
+            let empty2 = UIView()
+            empty2.heightAnchor.constraint(equalToConstant: 10).isActive = true
+            sender.parent.addArrangedSubview(empty2)
+
+            sender.parent.spacing = 10
+            
+            sender.parent.addBackground(color: UIColor(red: 240 / 255, green: 240 / 255, blue: 240 / 255, alpha: 1.0))
+        }
     }
     
     var checkBox = CheckBox()
@@ -158,27 +247,47 @@ class ViewController1: UIViewController {
     
     
     @IBAction func addNewItem(_ sender: Any) {
-        let tipsView = UIStackView()
-        tipsView.axis = .horizontal
-        tipsView.spacing = 10
+//<<<<<<< HEAD
+//        let tipsView = UIStackView()
+//        tipsView.axis = .horizontal
+//=======
+//        let tipsView = UIStackView()
+//        tipsView.axis = .horizontal
+//        tipsView.spacing = 10
+//
+//        let bulbImage = UIImageView(image: UIImage(named: "Bulb.png"))
+//        let tips = UILabel()
+//        tips.text = "Take bags"
+//        let empty3 = UIView()
+//        empty3.widthAnchor.constraint(equalToConstant: 100).isActive = true
+//        tipsView.addArrangedSubview(empty3)
+//        tipsView.addArrangedSubview(bulbImage)
+//        tipsView.addArrangedSubview(tips)
+//        tipsView.alignment = .fill
+//        tipsView.distribution = .fillProportionally
+//        tipsView.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
+//
+//        bulbImage.heightAnchor.constraint(equalTo: tipsView.heightAnchor).isActive = true
+//        bulbImage.heightAnchor.constraint(equalToConstant: 10.0).isActive = true
+//        bulbImage.widthAnchor.constraint(equalTo: bulbImage.heightAnchor).isActive = true
+//        bulbImage.leadingAnchor.constraint(equalTo: tipsView.leadingAnchor, constant: 10).isActive = true
+//>>>>>>> 81aadfef88e5708d10d47fa53f403b972830e8e2
         
-        let bulbImage = UIImageView(image: UIImage(named: "Bulb.png"))
-        let tips = UILabel()
-        tips.text = "Take bags"
-        let empty3 = UIView()
-        empty3.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        tipsView.addArrangedSubview(empty3)
-        tipsView.addArrangedSubview(bulbImage)
-        tipsView.addArrangedSubview(tips)
-        tipsView.alignment = .fill
-        tipsView.distribution = .fillProportionally
-        tipsView.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
-        
-        bulbImage.heightAnchor.constraint(equalTo: tipsView.heightAnchor).isActive = true
-        bulbImage.heightAnchor.constraint(equalToConstant: 10.0).isActive = true
-        bulbImage.widthAnchor.constraint(equalTo: bulbImage.heightAnchor).isActive = true
-        bulbImage.leadingAnchor.constraint(equalTo: tipsView.leadingAnchor, constant: 10).isActive = true
-        
+//        let bulbImage = UIImageView(image: UIImage(named: "Bulb.png"))
+//        let tips = UILabel()
+//        tips.text = "Take bags"
+//        tipsView.addArrangedSubview(bulbImage)
+//        tipsView.addArrangedSubview(tips)
+//        tipsView.alignment = .fill
+//        tipsView.distribution = .fillProportionally
+//        tipsView.spacing = 10
+//        tipsView.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
+//
+//        bulbImage.heightAnchor.constraint(equalTo: tipsView.heightAnchor).isActive = true
+//        bulbImage.heightAnchor.constraint(equalToConstant: 10.0).isActive = true
+//        bulbImage.widthAnchor.constraint(equalTo: bulbImage.heightAnchor).isActive = true
+//        bulbImage.leadingAnchor.constraint(equalTo: tipsView.leadingAnchor, constant: 10).isActive = true
+//
         
         let newItem = CheckList()
         let newFiled = UIStackView()
@@ -192,14 +301,19 @@ class ViewController1: UIViewController {
        newFiled.addArrangedSubview(empty)
         
         newFiled.addArrangedSubview(newItem)
-        newFiled.addArrangedSubview(tipsView)
-        let empty2 = UIView()
-        empty2.heightAnchor.constraint(equalToConstant: 10).isActive = true
-        newFiled.addArrangedSubview(empty2)
-
-        newFiled.spacing = 10
-        
-        newFiled.addBackground(color: UIColor(red: 240 / 255, green: 240 / 255, blue: 240 / 255, alpha: 1.0))
+//<<<<<<< HEAD
+////        newFiled.addArrangedSubview(tipsView)
+//        newFiled.addBackground(color: .orange)
+//=======
+//        newFiled.addArrangedSubview(tipsView)
+//        let empty2 = UIView()
+//        empty2.heightAnchor.constraint(equalToConstant: 10).isActive = true
+//        newFiled.addArrangedSubview(empty2)
+//
+//        newFiled.spacing = 10
+//
+//        newFiled.addBackground(color: UIColor(red: 240 / 255, green: 240 / 255, blue: 240 / 255, alpha: 1.0))
+//>>>>>>> 81aadfef88e5708d10d47fa53f403b972830e8e2
         stackView.addArrangedSubview(newFiled)
         
         newItem.text.parent = newFiled
