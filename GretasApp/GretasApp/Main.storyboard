@@ -22,11 +22,11 @@
                                 <color key="textColor" red="0.90588235294117647" green="0.4823529411764706" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCU-kj-lYJ">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCU-kj-lYJ">
                                 <rect key="frame" x="20" y="111" width="374" height="691"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalCentering" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="U6F-R2-YiW">
-                                        <rect key="frame" x="8" y="8" width="133" height="34"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="U6F-R2-YiW">
+                                        <rect key="frame" x="8" y="8" width="356" height="644"/>
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </stackView>
@@ -43,9 +43,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="2bv-l0-1FI" firstAttribute="bottom" secondItem="U6F-R2-YiW" secondAttribute="bottom" constant="50" id="2oH-QW-gX5"/>
                             <constraint firstItem="2bv-l0-1FI" firstAttribute="bottom" secondItem="cCU-kj-lYJ" secondAttribute="bottom" constant="11" id="Ec5-4A-ncx"/>
                             <constraint firstItem="cCU-kj-lYJ" firstAttribute="top" secondItem="uQZ-8r-D0Z" secondAttribute="bottom" constant="8" id="LaL-s7-c5Q"/>
+                            <constraint firstItem="U6F-R2-YiW" firstAttribute="leading" secondItem="2bv-l0-1FI" secondAttribute="leading" constant="28" id="Sxa-I3-vf7"/>
+                            <constraint firstItem="U6F-R2-YiW" firstAttribute="top" secondItem="uQZ-8r-D0Z" secondAttribute="bottom" constant="16" id="aIh-UH-TNO"/>
                             <constraint firstItem="2bv-l0-1FI" firstAttribute="trailing" secondItem="cCU-kj-lYJ" secondAttribute="trailing" constant="20" id="iDQ-gc-H8K"/>
+                            <constraint firstItem="2bv-l0-1FI" firstAttribute="trailing" secondItem="U6F-R2-YiW" secondAttribute="trailing" constant="30" id="pDS-6W-BXL"/>
                             <constraint firstItem="cCU-kj-lYJ" firstAttribute="leading" secondItem="2bv-l0-1FI" secondAttribute="leading" constant="20" id="t5S-Us-5aE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2bv-l0-1FI"/>

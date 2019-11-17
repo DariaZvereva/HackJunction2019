@@ -92,7 +92,7 @@ class CheckList : UIStackView {
 //        self.addSubview(checkBox)
 //        text.parent = self
         
-        self.addBackground(color: .orange)
+//        self.addBackground(color: .orange)
         self.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
 
         self.checkBox.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
