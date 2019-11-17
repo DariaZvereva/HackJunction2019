@@ -85,6 +85,7 @@ class CheckList : UIStackView {
         self.axis = .horizontal
         self.alignment = .fill
         self.distribution = .fillProportionally
+        
         self.spacing = 10
         
         self.addArrangedSubview(self.checkBox)
@@ -126,6 +127,7 @@ class ViewController1: UIViewController {
         stackView.alignment = .fill
         stackView.spacing = 10
         stackView.distribution = .fill
+
         scrollView.addSubview(stackView)
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -146,15 +148,18 @@ class ViewController1: UIViewController {
     @IBAction func addNewItem(_ sender: Any) {
         let tipsView = UIStackView()
         tipsView.axis = .horizontal
+        tipsView.spacing = 10
         
         let bulbImage = UIImageView(image: UIImage(named: "Bulb.png"))
         let tips = UILabel()
         tips.text = "Take bags"
+        let empty3 = UIView()
+        empty3.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        tipsView.addArrangedSubview(empty3)
         tipsView.addArrangedSubview(bulbImage)
         tipsView.addArrangedSubview(tips)
         tipsView.alignment = .fill
         tipsView.distribution = .fillProportionally
-        tipsView.spacing = 10
         tipsView.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
         
         bulbImage.heightAnchor.constraint(equalTo: tipsView.heightAnchor).isActive = true
@@ -166,8 +171,20 @@ class ViewController1: UIViewController {
         let newItem = CheckList()
         let newFiled = UIStackView()
         newFiled.axis = .vertical
+        
+        // HWERERERER
+        
+        let empty = UIView()
+       empty.heightAnchor.constraint(equalToConstant: 10).isActive = true
+//       empty.widthAnchor.constraint(equalToConstant: 15).isActive = true
+       newFiled.addArrangedSubview(empty)
+        
         newFiled.addArrangedSubview(newItem)
         newFiled.addArrangedSubview(tipsView)
+        let empty2 = UIView()
+        empty2.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        newFiled.addArrangedSubview(empty2)
+
         newFiled.spacing = 10
         
         newFiled.addBackground(color: UIColor(red: 240 / 255, green: 240 / 255, blue: 240 / 255, alpha: 1.0))
