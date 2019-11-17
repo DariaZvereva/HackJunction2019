@@ -42,10 +42,8 @@ class CheckList : UIStackView {
         }
     }
     
-    
-
     class ProTextField : UITextField {
-        weak var parent: UIView! = nil
+        weak var parent: UIStackView! = nil
         override func deleteBackward() {
             if (self.text != "") {
                 super.deleteBackward()
@@ -56,28 +54,62 @@ class CheckList : UIStackView {
         }
     }
     
-    @objc func makeSearch(sender: UITextField) -> String {
-        let http_client = HttpClient(_baseUrl: "https://kesko.azure-api.net/v1/search", _token: "3ddca0c4535143e1bdf67a32c216c881")
-        let (data, response, error) = http_client.reciveProductCategory(item: sender.text ?? " ")
-        print("!!!!!!")
+    @objc func makeSearch(sender: ProTextField){
+        let http_client = HttpClient(_baseUrl: "https://kesko.azure-api.net/v1", _token: "3ddca0c4535143e1bdf67a32c216c881")
+        let (data, response, error) = http_client.reciveProductCategory(item: sender.text!)
         let responseJSON = try? JSONSerialization.jsonObject(with: data!, options: [])
+        var category: String?
         if let responseJSON = responseJSON as? [String: Any] {
+//            print("JSON BEGIN")
+//            print(responseJSON)
+//            print("JSON END")
+            
             if let results = responseJSON["results"] as? Array<Any> {
-                print(results)
-                if let best_result = results[0] as? [String: Any] {
-                    print(best_result["segment"])
+//                print(1111)
+//                print(results)
+                if results.count > 0 {
+                    if let best_result = results[0] as? [String: Any] {
+//                        print(2222)
+//                        print(best_result)
+                        if let subcategory = best_result["subcategory"] as? [String: Any] {
+//                            print(3333)
+                            category = subcategory["finnish"] as? String
+                            print(category)
+                        }
+                    }
                 }
             }
-//            print(responseJSON["results"]![0]["ean"])
         }
-//        print(String(data: data!, encoding: .utf8))
-        print("azazaza")
-        print(response)
-        print(error)
-        print("11111")
-        print("data")
-        
-        return String(data: data!, encoding: .utf8) ?? " "
+        if category != nil {
+//            sender.parent.
+            let tipsView = UIStackView()
+            tipsView.axis = .horizontal
+            let bulbImage = UIImageView(image: UIImage(named: "Bulb.png"))
+            let tips = UILabel()
+            if category! == "Virvoitusjuomat" {
+                tips.text = "Take can instead of plasstic!"
+            }
+            else if category! == "Hedelmät ja marjat" {
+                tips.text = "Don't forget bag!"
+            } else {
+                return
+            }
+            tipsView.addArrangedSubview(bulbImage)
+            tipsView.addArrangedSubview(tips)
+            tipsView.alignment = .fill
+            tipsView.distribution = .fillProportionally
+            tipsView.spacing = 10
+            tipsView.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
+            
+            bulbImage.heightAnchor.constraint(equalTo: tipsView.heightAnchor).isActive = true
+            bulbImage.heightAnchor.constraint(equalToConstant: 10.0).isActive = true
+            bulbImage.widthAnchor.constraint(equalTo: bulbImage.heightAnchor).isActive = true
+            bulbImage.leadingAnchor.constraint(equalTo: tipsView.leadingAnchor, constant: 10).isActive = true
+            
+            
+            sender.parent.addArrangedSubview(tipsView)
+        }
+//        return category
     }
     
     var checkBox = CheckBox()
@@ -150,30 +182,30 @@ class ViewController1: UIViewController {
     
     
     @IBAction func addNewItem(_ sender: Any) {
-        let tipsView = UIStackView()
-        tipsView.axis = .horizontal
+//        let tipsView = UIStackView()
+//        tipsView.axis = .horizontal
         
-        let bulbImage = UIImageView(image: UIImage(named: "Bulb.png"))
-        let tips = UILabel()
-        tips.text = "Take bags"
-        tipsView.addArrangedSubview(bulbImage)
-        tipsView.addArrangedSubview(tips)
-        tipsView.alignment = .fill
-        tipsView.distribution = .fillProportionally
-        tipsView.spacing = 10
-        tipsView.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
-        
-        bulbImage.heightAnchor.constraint(equalTo: tipsView.heightAnchor).isActive = true
-        bulbImage.heightAnchor.constraint(equalToConstant: 10.0).isActive = true
-        bulbImage.widthAnchor.constraint(equalTo: bulbImage.heightAnchor).isActive = true
-        bulbImage.leadingAnchor.constraint(equalTo: tipsView.leadingAnchor, constant: 10).isActive = true
-        
+//        let bulbImage = UIImageView(image: UIImage(named: "Bulb.png"))
+//        let tips = UILabel()
+//        tips.text = "Take bags"
+//        tipsView.addArrangedSubview(bulbImage)
+//        tipsView.addArrangedSubview(tips)
+//        tipsView.alignment = .fill
+//        tipsView.distribution = .fillProportionally
+//        tipsView.spacing = 10
+//        tipsView.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
+//
+//        bulbImage.heightAnchor.constraint(equalTo: tipsView.heightAnchor).isActive = true
+//        bulbImage.heightAnchor.constraint(equalToConstant: 10.0).isActive = true
+//        bulbImage.widthAnchor.constraint(equalTo: bulbImage.heightAnchor).isActive = true
+//        bulbImage.leadingAnchor.constraint(equalTo: tipsView.leadingAnchor, constant: 10).isActive = true
+//
         
         let newItem = CheckList()
         let newFiled = UIStackView()
         newFiled.axis = .vertical
         newFiled.addArrangedSubview(newItem)
-        newFiled.addArrangedSubview(tipsView)
+//        newFiled.addArrangedSubview(tipsView)
         newFiled.addBackground(color: .orange)
         stackView.addArrangedSubview(newFiled)
         

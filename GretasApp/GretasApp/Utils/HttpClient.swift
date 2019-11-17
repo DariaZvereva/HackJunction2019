@@ -45,7 +45,7 @@ class HttpClient {
     }
     
     func reciveProductCategory(item: String) -> (data: Data?, response: URLResponse?, error: Error?) {
-        let url = URL(string: String(format: "\(self.baseUrl)/products/"))!
+        let url = URL(string: String(format: "\(self.baseUrl)/search/products"))!
         print(url)
         var urlrequest = URLRequest(url: url)
         urlrequest.httpMethod = "POST"
@@ -56,6 +56,7 @@ class HttpClient {
         let jsonData = try? JSONSerialization.data(withJSONObject: body)
         urlrequest.httpBody = jsonData
         urlrequest.addValue(self.token, forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
+        urlrequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let (data, response, error) = self.doAndParseRequest(urlrequest: urlrequest)
         return (data, response, error)
     }
