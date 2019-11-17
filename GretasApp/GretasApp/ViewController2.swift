@@ -60,10 +60,10 @@ class ViewController2: UIViewController {
         checkListStackView.distribution = .equalSpacing
         checkListStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        let allChecks = ["12345", "123245323", "gsdfgsdfgsf", "sfgsfg", "sgsagdf", "fsfgdsfg"]
+        let allChecks = ["Not using disposable cups today!"]
 
         // read
-        let historyChecks = [("2019-11-03T11:00:00+0000", "12345"), ("2019-11-15T11:00:00+0000", "12345")]
+        let historyChecks = [("2019-11-03T11:00:00+0000", "Not using disposable cups today!")]
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -191,8 +191,8 @@ class ViewController2: UIViewController {
 
         mainStackView.addArrangedSubview(challengesStackView)
 
-        let allChallenges = ["challenge 1", "challenge 2", "challenge 3"]
-        let doneChallenges = ["challenge 2"]
+        let allChallenges = ["Only resycable plastic for 1 month", "Week without disposable cups", "Only products with low carbon footprint"]
+        let doneChallenges = ["Only resycable plastic for 1 month"]
 
         for challenge in allChallenges {
             print(challenge)
@@ -238,7 +238,7 @@ class ViewController2: UIViewController {
     func createView(l: String, withAction: Bool, done: Bool) -> UIView {
         print("create")
         let background = UIView()
-        background.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        background.heightAnchor.constraint(equalToConstant: 70.0).isActive = true
         background.backgroundColor = hexStringToUIColor(hex: "F0F0F0")
 
         background.translatesAutoresizingMaskIntoConstraints = false
@@ -266,7 +266,10 @@ class ViewController2: UIViewController {
 
         label.text = l
         
+//        label.font = UIFont(name: "Helvetica", size: 15)
         
+        label.numberOfLines = 2
+        label.lineBreakMode = .byWordWrapping
         if withAction {
             button.addTarget(self, action: #selector(handleTouch), for: .touchUpInside)
             button.tag = currentTag
@@ -276,11 +279,11 @@ class ViewController2: UIViewController {
         } else {
             if done {
                 button.setTitle("⭐️", for: .normal)
-                label.font = UIFont(name: "Helevtica-Bold", size: 16.0)
+                label.font = UIFont(name: "Helevtica-Bold", size: 10.0)
 //                button.setImage(UIImage(named: "star"), for: .normal)
             } else {
                 button.setTitle("🔘", for: .normal)
-                label.font = UIFont(name: "Helevtica-Light", size: 16.0)
+                label.font = UIFont(name: "Helevtica-Light", size: 10.0)
             }
         }
 
