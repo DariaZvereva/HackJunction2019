@@ -22,30 +22,32 @@
                                 <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9C-EK-oab">
-                                <rect key="frame" x="54" y="768" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="addProduct:" destination="WQz-mD-z4n" eventType="touchUpInside" id="a20-C1-bcs"/>
-                                </connections>
-                            </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cCU-kj-lYJ">
-                                <rect key="frame" x="20" y="111" width="374" height="658"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCU-kj-lYJ">
+                                <rect key="frame" x="20" y="111" width="374" height="691"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="U6F-R2-YiW">
-                                        <rect key="frame" x="8" y="8" width="358" height="641"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalCentering" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="U6F-R2-YiW">
+                                        <rect key="frame" x="8" y="8" width="358" height="675"/>
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="U6F-R2-YiW" firstAttribute="leading" secondItem="cCU-kj-lYJ" secondAttribute="leading" constant="8" id="6EN-mD-wSN"/>
+                                    <constraint firstAttribute="bottom" secondItem="U6F-R2-YiW" secondAttribute="bottom" constant="8" id="XYc-KP-2tx"/>
+                                    <constraint firstAttribute="trailing" secondItem="U6F-R2-YiW" secondAttribute="trailing" constant="8" id="iEo-Y9-Lfh"/>
+                                    <constraint firstItem="U6F-R2-YiW" firstAttribute="top" secondItem="cCU-kj-lYJ" secondAttribute="top" constant="8" id="n4F-pK-Imq"/>
+                                </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="l2r-HR-34s"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="o4C-XB-Fx4"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2bv-l0-1FI" firstAttribute="bottom" secondItem="cCU-kj-lYJ" secondAttribute="bottom" constant="11" id="Ec5-4A-ncx"/>
+                            <constraint firstItem="cCU-kj-lYJ" firstAttribute="top" secondItem="uQZ-8r-D0Z" secondAttribute="bottom" constant="8" id="LaL-s7-c5Q"/>
+                            <constraint firstItem="2bv-l0-1FI" firstAttribute="trailing" secondItem="cCU-kj-lYJ" secondAttribute="trailing" constant="20" id="iDQ-gc-H8K"/>
+                            <constraint firstItem="cCU-kj-lYJ" firstAttribute="leading" secondItem="2bv-l0-1FI" secondAttribute="leading" constant="20" id="t5S-Us-5aE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2bv-l0-1FI"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Fridge" id="nQu-E4-oHF"/>
@@ -111,13 +113,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWJ-kS-BgI">
-                                <rect key="frame" x="114" y="265" width="201" height="94"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kaX-IQ-pRp">
+                                <rect key="frame" x="20" y="148" width="374" height="543"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="llg-cq-vSS">
+                                        <rect key="frame" x="8" y="8" width="97" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </stackView>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="WyJ-wp-SOO"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="WNH-fg-68E"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shopping List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9a-gJ-Sri">
+                                <rect key="frame" x="20" y="72" width="208" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7t-Nw-N2a">
+                                <rect key="frame" x="318" y="725" width="76" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add New Item" image="Plus"/>
+                                <connections>
+                                    <action selector="addNewItem:" destination="NRS-QU-yOP" eventType="touchDown" id="BXF-em-AZa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="kZ2-DT-NEH"/>
@@ -125,7 +147,9 @@
                     <tabBarItem key="tabBarItem" title="Shop list" id="wV6-H3-mIq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="label" destination="WWJ-kS-BgI" id="05I-tz-JoR"/>
+                        <outlet property="addNewItem" destination="u7t-Nw-N2a" id="XCI-TN-mE6"/>
+                        <outlet property="scrollView" destination="kaX-IQ-pRp" id="zNe-6i-Yw8"/>
+                        <outlet property="stackView" destination="llg-cq-vSS" id="Ncn-dE-pib"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXZ-YR-NQ5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -140,6 +164,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="" value="NO"/>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="NRS-QU-yOP" kind="relationship" relationship="viewControllers" id="s0V-Zm-slq"/>
