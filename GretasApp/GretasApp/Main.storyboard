@@ -7,7 +7,61 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Fridge-->
+        <scene sceneID="pDL-db-XWf">
+            <objects>
+                <viewController id="WQz-mD-z4n" userLabel="Fridge" customClass="FridgeController" customModule="GretasApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="be3-Vx-Yly" userLabel="FridgeView">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your products" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uQZ-8r-D0Z">
+                                <rect key="frame" x="20" y="44" width="374" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="33"/>
+                                <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCU-kj-lYJ">
+                                <rect key="frame" x="20" y="111" width="374" height="691"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalCentering" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="U6F-R2-YiW">
+                                        <rect key="frame" x="8" y="8" width="358" height="675"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="U6F-R2-YiW" firstAttribute="leading" secondItem="cCU-kj-lYJ" secondAttribute="leading" constant="8" id="6EN-mD-wSN"/>
+                                    <constraint firstAttribute="bottom" secondItem="U6F-R2-YiW" secondAttribute="bottom" constant="8" id="XYc-KP-2tx"/>
+                                    <constraint firstAttribute="trailing" secondItem="U6F-R2-YiW" secondAttribute="trailing" constant="8" id="iEo-Y9-Lfh"/>
+                                    <constraint firstItem="U6F-R2-YiW" firstAttribute="top" secondItem="cCU-kj-lYJ" secondAttribute="top" constant="8" id="n4F-pK-Imq"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="l2r-HR-34s"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="o4C-XB-Fx4"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2bv-l0-1FI" firstAttribute="bottom" secondItem="cCU-kj-lYJ" secondAttribute="bottom" constant="11" id="Ec5-4A-ncx"/>
+                            <constraint firstItem="cCU-kj-lYJ" firstAttribute="top" secondItem="uQZ-8r-D0Z" secondAttribute="bottom" constant="8" id="LaL-s7-c5Q"/>
+                            <constraint firstItem="2bv-l0-1FI" firstAttribute="trailing" secondItem="cCU-kj-lYJ" secondAttribute="trailing" constant="20" id="iDQ-gc-H8K"/>
+                            <constraint firstItem="cCU-kj-lYJ" firstAttribute="leading" secondItem="2bv-l0-1FI" secondAttribute="leading" constant="20" id="t5S-Us-5aE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2bv-l0-1FI"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Fridge" id="nQu-E4-oHF"/>
+                    <connections>
+                        <outlet property="pageLabel" destination="uQZ-8r-D0Z" id="sYu-3l-XE8"/>
+                        <outlet property="productsStackView" destination="U6F-R2-YiW" id="aX5-OK-uFf"/>
+                        <outlet property="scrollView" destination="cCU-kj-lYJ" id="Iuv-LY-IE9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Vh-mi-Txc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1210.144927536232" y="841.74107142857144"/>
+        </scene>
+        <!--Achivements-->
         <scene sceneID="pRs-tN-60l">
             <objects>
                 <viewController id="e9Z-wi-ECG" customClass="ViewController2" customModule="GretasApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,13 +71,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="2Cy-eX-g72"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="wRM-4I-tpl"/>
+                    <tabBarItem key="tabBarItem" title="Achivements" id="wRM-4I-tpl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAK-Eg-NJo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="65" y="126"/>
         </scene>
-        <!--Item 1-->
+        <!--Shop list-->
         <scene sceneID="yoX-9U-7pG">
             <objects>
                 <viewController id="NRS-QU-yOP" customClass="ViewController1" customModule="GretasApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -62,7 +116,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="kZ2-DT-NEH"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="9Bj-ua-MdM"/>
+                    <tabBarItem key="tabBarItem" title="Shop list" id="wV6-H3-mIq"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addNewItem" destination="u7t-Nw-N2a" id="XCI-TN-mE6"/>
                         <outlet property="scrollView" destination="kaX-IQ-pRp" id="zNe-6i-Yw8"/>
@@ -88,6 +143,7 @@
                     <connections>
                         <segue destination="NRS-QU-yOP" kind="relationship" relationship="viewControllers" id="s0V-Zm-slq"/>
                         <segue destination="e9Z-wi-ECG" kind="relationship" relationship="viewControllers" id="qLG-Eh-6mT"/>
+                        <segue destination="WQz-mD-z4n" kind="relationship" relationship="viewControllers" id="ED1-UE-64X"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qCe-jh-Rdb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
