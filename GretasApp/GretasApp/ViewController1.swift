@@ -81,9 +81,36 @@ class CheckList : UIStackView {
             }
         }
         if category != nil {
-//            sender.parent.
+//            let tipsView = UIStackView()
+//            tipsView.axis = .horizontal
+//            let bulbImage = UIImageView(image: UIImage(named: "Bulb.png"))
+//            let tips = UILabel()
+//            if category! == "Virvoitusjuomat" {
+//                tips.text = "Take can instead of plasstic!"
+//            }
+//            else if category! == "Hedelmät ja marjat" {
+//                tips.text = "Don't forget bag!"
+//            } else {
+//                return
+//            }
+//            tipsView.addArrangedSubview(bulbImage)
+//            tipsView.addArrangedSubview(tips)
+//            tipsView.alignment = .fill
+//            tipsView.distribution = .fillProportionally
+//            tipsView.spacing = 10
+//            tipsView.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
+//
+//            bulbImage.heightAnchor.constraint(equalTo: tipsView.heightAnchor).isActive = true
+//            bulbImage.heightAnchor.constraint(equalToConstant: 10.0).isActive = true
+//            bulbImage.widthAnchor.constraint(equalTo: bulbImage.heightAnchor).isActive = true
+//            bulbImage.leadingAnchor.constraint(equalTo: tipsView.leadingAnchor, constant: 10).isActive = true
+            
+            
+            
             let tipsView = UIStackView()
             tipsView.axis = .horizontal
+            tipsView.spacing = 10
+            
             let bulbImage = UIImageView(image: UIImage(named: "Bulb.png"))
             let tips = UILabel()
             if category! == "Virvoitusjuomat" {
@@ -94,11 +121,13 @@ class CheckList : UIStackView {
             } else {
                 return
             }
+            let empty3 = UIView()
+            empty3.widthAnchor.constraint(equalToConstant: 100).isActive = true
+            tipsView.addArrangedSubview(empty3)
             tipsView.addArrangedSubview(bulbImage)
             tipsView.addArrangedSubview(tips)
             tipsView.alignment = .fill
             tipsView.distribution = .fillProportionally
-            tipsView.spacing = 10
             tipsView.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
             
             bulbImage.heightAnchor.constraint(equalTo: tipsView.heightAnchor).isActive = true
@@ -106,10 +135,25 @@ class CheckList : UIStackView {
             bulbImage.widthAnchor.constraint(equalTo: bulbImage.heightAnchor).isActive = true
             bulbImage.leadingAnchor.constraint(equalTo: tipsView.leadingAnchor, constant: 10).isActive = true
             
+//            newFiled.addArrangedSubview(tipsView)
+//            let empty2 = UIView()
+//            empty2.heightAnchor.constraint(equalToConstant: 10).isActive = true
+//            newFiled.addArrangedSubview(empty2)
+//
+//            newFiled.spacing = 10
+//
+//            newFiled.addBackground(color: UIColor(red: 240 / 255, green: 240 / 255, blue: 240 / 255, alpha: 1.0))
+            
             
             sender.parent.addArrangedSubview(tipsView)
+            let empty2 = UIView()
+            empty2.heightAnchor.constraint(equalToConstant: 10).isActive = true
+            sender.parent.addArrangedSubview(empty2)
+
+            sender.parent.spacing = 10
+            
+            sender.parent.addBackground(color: UIColor(red: 240 / 255, green: 240 / 255, blue: 240 / 255, alpha: 1.0))
         }
-//        return category
     }
     
     var checkBox = CheckBox()
@@ -123,6 +167,7 @@ class CheckList : UIStackView {
         self.axis = .horizontal
         self.alignment = .fill
         self.distribution = .fillProportionally
+        
         self.spacing = 10
         
         self.addArrangedSubview(self.checkBox)
@@ -130,7 +175,7 @@ class CheckList : UIStackView {
 //        self.addSubview(checkBox)
 //        text.parent = self
         
-        self.addBackground(color: .orange)
+//        self.addBackground(color: .orange)
         self.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
 
         self.checkBox.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
@@ -164,6 +209,7 @@ class ViewController1: UIViewController {
         stackView.alignment = .fill
         stackView.spacing = 10
         stackView.distribution = .fill
+
         scrollView.addSubview(stackView)
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -182,8 +228,31 @@ class ViewController1: UIViewController {
     
     
     @IBAction func addNewItem(_ sender: Any) {
+//<<<<<<< HEAD
 //        let tipsView = UIStackView()
 //        tipsView.axis = .horizontal
+//=======
+//        let tipsView = UIStackView()
+//        tipsView.axis = .horizontal
+//        tipsView.spacing = 10
+//
+//        let bulbImage = UIImageView(image: UIImage(named: "Bulb.png"))
+//        let tips = UILabel()
+//        tips.text = "Take bags"
+//        let empty3 = UIView()
+//        empty3.widthAnchor.constraint(equalToConstant: 100).isActive = true
+//        tipsView.addArrangedSubview(empty3)
+//        tipsView.addArrangedSubview(bulbImage)
+//        tipsView.addArrangedSubview(tips)
+//        tipsView.alignment = .fill
+//        tipsView.distribution = .fillProportionally
+//        tipsView.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
+//
+//        bulbImage.heightAnchor.constraint(equalTo: tipsView.heightAnchor).isActive = true
+//        bulbImage.heightAnchor.constraint(equalToConstant: 10.0).isActive = true
+//        bulbImage.widthAnchor.constraint(equalTo: bulbImage.heightAnchor).isActive = true
+//        bulbImage.leadingAnchor.constraint(equalTo: tipsView.leadingAnchor, constant: 10).isActive = true
+//>>>>>>> 81aadfef88e5708d10d47fa53f403b972830e8e2
         
 //        let bulbImage = UIImageView(image: UIImage(named: "Bulb.png"))
 //        let tips = UILabel()
@@ -204,9 +273,28 @@ class ViewController1: UIViewController {
         let newItem = CheckList()
         let newFiled = UIStackView()
         newFiled.axis = .vertical
+        
+        // HWERERERER
+        
+        let empty = UIView()
+       empty.heightAnchor.constraint(equalToConstant: 10).isActive = true
+//       empty.widthAnchor.constraint(equalToConstant: 15).isActive = true
+       newFiled.addArrangedSubview(empty)
+        
         newFiled.addArrangedSubview(newItem)
+//<<<<<<< HEAD
+////        newFiled.addArrangedSubview(tipsView)
+//        newFiled.addBackground(color: .orange)
+//=======
 //        newFiled.addArrangedSubview(tipsView)
-        newFiled.addBackground(color: .orange)
+//        let empty2 = UIView()
+//        empty2.heightAnchor.constraint(equalToConstant: 10).isActive = true
+//        newFiled.addArrangedSubview(empty2)
+//
+//        newFiled.spacing = 10
+//
+//        newFiled.addBackground(color: UIColor(red: 240 / 255, green: 240 / 255, blue: 240 / 255, alpha: 1.0))
+//>>>>>>> 81aadfef88e5708d10d47fa53f403b972830e8e2
         stackView.addArrangedSubview(newFiled)
         
         newItem.text.parent = newFiled
