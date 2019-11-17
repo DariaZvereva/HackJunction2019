@@ -57,6 +57,14 @@ class CheckList : UIStackView {
     }
     
     @objc func makeSearch(sender: UITextField) -> String {
+        
+        let defaults = UserDefaults.standard
+        if let data_ = defaults.string(forKey: "shopping_list") {
+            defaults.set(data_+";"+sender.text!, forKey: "shopping_list")
+        } else {
+            defaults.set(sender.text, forKey: "shopping_list")
+        }
+        
         let http_client = HttpClient(_baseUrl: "https://kesko.azure-api.net/v1/search", _token: "3ddca0c4535143e1bdf67a32c216c881")
         let (data, response, error) = http_client.reciveProductCategory(item: sender.text ?? " ")
         print("!!!!!!")
@@ -137,8 +145,12 @@ class ViewController1: UIViewController {
           stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
           stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
-        
-        
+//        let defaults = UserDefaults.standard
+//        if let data_ = defaults.string(forKey: "run_out_product") {
+//            let to_add = Array(data_.split(separator: ";").map(String.init))
+//        }
+//        for it in to_add:
+//            
     }
     
     
